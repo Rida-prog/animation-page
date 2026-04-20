@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Zoha 🌷</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --pink:   #ff85a1;
+    --red:    #e63950;
+    --deep:   #c0143c;
+    --cream:  #fff0f3;
+    --glow-r: rgba(230,57,80,0.55);
+    --glow-p: rgba(255,133,161,0.45);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', serif;
+    background: linear-gradient(160deg,
+      #3d0014 0%,
+      #7b1030 18%,
+      #c0143c 38%,
+      #e8476a 55%,
+      #ff85a1 72%,
+      #ffb3c6 88%,
+      #ffe4ec 100%
+    );
+    background-attachment: fixed;
+    overflow-x: hidden;
+    min-height: 100vh;
+    cursor: crosshair;
+  }
+
+  /* ── Petal rain layer ── */
+  #petals {
+    position: fixed; inset:0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    top: -60px;
+    font-size: 1.3rem;
+    opacity: 0;
+    animation: fallPetal linear infinite;
+  }
+  @keyframes fallPetal {
+    0%   { opacity:0; transform: translateY(-60px) rotate(0deg) scale(0.6); }
+    10%  { opacity: 0.85; }
+    90%  { opacity: 0.4; }
+    100% { opacity:0; transform: translateY(110vh) rotate(720deg) scale(1.1); }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative; z-index:1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    gap: 18px;
+  }
+
+  .hero-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-shadow: 0 0 18px rgba(255,255,255,0.6);
+  }
+
+  .hero-name {
+    font-family: 'Italiana', serif;
+    font-size: clamp(5rem, 22vw, 16rem);
+    line-height: 0.9;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffc2d1 30%, #ff4d6d 65%, #c9184a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 2px rgba(0,0,0,0.55);
+    paint-order: stroke fill;
+    filter: drop-shadow(0 0 40px rgba(201,24,74,0.6)) drop-shadow(0 0 80px rgba(255,77,109,0.3));
+    animation: nameGlow 4s ease-in-out infinite;
+  }
+  @keyframes nameGlow {
+    0%,100% { filter: drop-shadow(0 0 35px rgba(201,24,74,0.55)) drop-shadow(0 0 70px rgba(255,77,109,0.25)); }
+    50%      { filter: drop-shadow(0 0 60px rgba(255,133,161,0.75)) drop-shadow(0 0 110px rgba(201,24,74,0.4)); }
+  }
+
+  .hero-tagline {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.8vw, 1.6rem);
+    color: rgba(255,255,255,0.88);
+    text-shadow: 0 2px 20px rgba(192,20,60,0.6), 0 0 40px rgba(255,133,161,0.3);
+    letter-spacing: 0.08em;
+    max-width: 640px;
+  }
+
+  .scroll-cue {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    animation: nudge 2.2s ease-in-out infinite;
+  }
+  .scroll-cue svg { width:26px; height:26px; stroke:rgba(255,255,255,0.55); }
+  @keyframes nudge {
+    0%,100% { transform:translateY(0); }
+    50%      { transform:translateY(12px); }
+  }
+
+  /* ── Divider ── */
+  .divider {
+    position: relative; z-index:1;
+    display: flex; align-items:center; justify-content:center;
+    padding: 10px 0;
+    gap: 18px;
+  }
+  .div-line {
+    flex:1; max-width:260px; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  }
+  .div-icon { font-size:1.5rem; animation:spinSlow 8s linear infinite; }
+  @keyframes spinSlow {
+    0% { transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+  }
+
+  /* ── Sections ── */
+  .section {
+    position: relative; z-index:1;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 5vw;
+    gap: 50px;
+  }
+
+  /* ── Bouquet Column ── */
+  .bouquet-col {
+    display:flex; align-items:center; justify-content:center;
+    position: relative;
+  }
+
+  .bouquet-frame {
+    position: relative;
+    width: min(380px, 90vw);
+    opacity: 0;
+    transform: translateX(-70px) scale(0.9);
+    transition: opacity 1s ease, transform 1s ease;
+    filter: drop-shadow(0 30px 60px rgba(192,20,60,0.45)) drop-shadow(0 0 30px rgba(255,133,161,0.3));
+    animation: floatBouquet 6s ease-in-out infinite;
+  }
+  .bouquet-frame:nth-child(2) { animation-delay: -2s; }
+
+  @keyframes floatBouquet {
+    0%,100% { filter: drop-shadow(0 30px 60px rgba(192,20,60,0.45)) drop-shadow(0 0 30px rgba(255,133,161,0.3)) translateY(0px); }
+    50%      { filter: drop-shadow(0 40px 80px rgba(192,20,60,0.55)) drop-shadow(0 0 50px rgba(255,133,161,0.45)) translateY(-12px); }
+  }
+
+  .bouquet-frame.visible {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  .bouquet-svg-wrap {
+    width: 100%;
+    animation: floatImg 6s ease-in-out infinite;
+  }
+  @keyframes floatImg {
+    0%,100% { transform: translateY(0px) rotate(-1deg); }
+    50%      { transform: translateY(-14px) rotate(1deg); }
+  }
+
+  .bouquet-svg-wrap svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ── Text Column ── */
+  .text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    opacity: 0;
+    transform: translateX(70px);
+    transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+  }
+  .text-col.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .text-num {
+    font-family: 'Italiana', serif;
+    font-size: clamp(5rem, 12vw, 9rem);
+    line-height: 1;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,133,161,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: absolute;
+    right: 5vw;
+    top: 60px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .text-bar {
+    display: flex; align-items:center; gap:14px;
+  }
+  .text-bar-line {
+    height: 3px; width: 50px;
+    background: linear-gradient(90deg, #c9184a, #ff85a1);
+    border-radius: 99px;
+    box-shadow: 0 0 12px rgba(201,24,74,0.6);
+  }
+  .text-bar-tulip { font-size: 1.3rem; }
+
+  .text-heading {
+    font-family: 'Italiana', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    background: linear-gradient(135deg, #7b0028 0%, #c9184a 35%, #9b003f 60%, #be123c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 1.2px #000;
+    paint-order: stroke fill;
+    text-shadow: none;
+    filter: drop-shadow(0 0 14px rgba(201,24,74,0.6)) drop-shadow(0 0 28px rgba(155,0,63,0.4));
+  }
+
+  .text-body {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    font-weight: 400;
+    line-height: 2;
+    background: linear-gradient(150deg, #7b0028 0%, #c9184a 30%, #9d174d 60%, #be123c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 0.55px rgba(0,0,0,0.8);
+    paint-order: stroke fill;
+    filter: drop-shadow(0 0 6px rgba(201,24,74,0.3));
+  }
+
+  .text-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    background: linear-gradient(90deg, #9b003f, #c9184a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.6);
+    filter: drop-shadow(0 0 8px rgba(201,24,74,0.4));
+  }
+
+  /* ── Proposal Section ── */
+  .proposal {
+    position: relative; z-index:1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    gap: 44px;
+  }
+
+  .proposal-icon {
+    font-size: clamp(4rem, 12vw, 7rem);
+    animation: iconPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba(255,133,161,0.7));
+  }
+  @keyframes iconPulse {
+    0%,100% { transform: scale(1) rotate(-4deg); }
+    50%      { transform: scale(1.15) rotate(4deg); }
+  }
+
+  .proposal-q {
+    font-family: 'Italiana', serif;
+    font-size: clamp(1.8rem, 5.5vw, 4.5rem);
+    line-height: 1.25;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffc2d1 40%, #ff4d6d 75%, #c9184a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 1.5px #000;
+    paint-order: stroke fill;
+    filter: drop-shadow(0 0 30px rgba(255,77,109,0.5)) drop-shadow(0 0 60px rgba(201,24,74,0.3));
+    max-width: 760px;
+    animation: shimmerQ 4s linear infinite;
+    background-size: 200%;
+  }
+  @keyframes shimmerQ {
+    0%   { background-position:0% 50%; }
+    50%  { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
+  .btn-group {
+    display: flex; gap:24px; flex-wrap:wrap; justify-content:center;
+  }
+
+  .btn-yes {
+    font-family: 'Italiana', serif;
+    font-size: clamp(1.1rem, 2.8vw, 1.7rem);
+    padding: 16px 56px;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffc2d1 40%, #ff4d6d 80%, #c9184a 100%);
+    color: #6b0020;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow:
+      0 8px 32px rgba(201,24,74,0.4),
+      0 2px 8px rgba(255,133,161,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,0.4);
+  }
+  .btn-yes::before {
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(135deg, #c9184a 0%, #ff4d6d 40%, #ffc2d1 80%, #fff0f3 100%);
+    opacity:0;
+    transition: opacity 0.3s;
+  }
+  .btn-yes:hover::before { opacity:1; }
+  .btn-yes span { position:relative; z-index:1; }
+  .btn-yes:hover {
+    transform: translateY(-5px) scale(1.06);
+    box-shadow: 0 20px 55px rgba(201,24,74,0.5), 0 6px 20px rgba(255,133,161,0.4);
+    color: #fff;
+  }
+  .btn-yes:active { transform:translateY(0) scale(0.97); }
+
+  .closing {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    color: rgba(255,255,255,0.8);
+    text-shadow: 0 2px 14px rgba(201,24,74,0.5);
+    max-width: 500px;
+    line-height: 1.8;
+  }
+
+  /* ── Burst overlay ── */
+  #burst {
+    position: fixed; inset:0;
+    pointer-events:none; z-index:9999;
+    display:flex; align-items:center; justify-content:center;
+    font-size:6rem; opacity:0;
+  }
+  #burst.show { animation: burstAnim 1.8s ease forwards; }
+  @keyframes burstAnim {
+    0%   { opacity:1; transform:scale(0.4); }
+    40%  { opacity:1; transform:scale(2); }
+    100% { opacity:0; transform:scale(3.5); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width:720px) {
+    .section {
+      grid-template-columns:1fr;
+      padding:60px 5vw;
+      min-height:unset;
+      gap:36px;
+    }
+    .text-num { display:none; }
+    .bouquet-col { order:1; }
+    .text-col { order:2; transform:translateY(40px); }
+    .text-col.visible { transform:translateY(0); }
+    .bouquet-frame { transform:translateX(0) scale(0.92); }
+    .bouquet-frame.visible { transform:translateX(0) scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Petal rain -->
+<div id="petals"></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-label">✦ A Letter To My Forever Person ✦</div>
+  <div class="hero-name">Zoha</div>
+  <div class="hero-tagline">
+    "There are friends, and then there is you —<br/>
+    the kind of soul the universe places only once."
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll for her</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ DIVIDER 1 ══ -->
+<div class="divider"><div class="div-line"></div><div class="div-icon">🌷</div><div class="div-line"></div></div>
+
+<!-- ═══════════════ SECTION 1 ═══════════════ -->
+<section class="section" id="s1">
+
+  <div class="bouquet-col">
+    <div class="bouquet-frame" id="bf1">
+      <div class="bouquet-svg-wrap">
+        <!-- BOUQUET 1: Classic Red Tulips Hand Bouquet with 17 stems -->
+        <svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="b1-petal-r" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#ff8fa3"/>
+              <stop offset="40%" stop-color="#e63950"/>
+              <stop offset="100%" stop-color="#8b0a2a"/>
+            </radialGradient>
+            <radialGradient id="b1-petal-deep" cx="50%" cy="70%" r="50%">
+              <stop offset="0%" stop-color="#ff4d6d"/>
+              <stop offset="50%" stop-color="#c9184a"/>
+              <stop offset="100%" stop-color="#6b0020"/>
+            </radialGradient>
+            <radialGradient id="b1-petal-pink" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#ffb3c1"/>
+              <stop offset="50%" stop-color="#ff85a1"/>
+              <stop offset="100%" stop-color="#c9184a"/>
+            </radialGradient>
+            <linearGradient id="b1-stem" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2d6a4f"/>
+              <stop offset="50%" stop-color="#52b788"/>
+              <stop offset="100%" stop-color="#1b4332"/>
+            </linearGradient>
+            <linearGradient id="b1-leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#52b788"/>
+              <stop offset="100%" stop-color="#1b4332"/>
+            </linearGradient>
+            <linearGradient id="b1-ribbon" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#fff0f3"/>
+              <stop offset="50%" stop-color="#ffc2d1"/>
+              <stop offset="100%" stop-color="#ff85a1"/>
+            </linearGradient>
+            <filter id="b1-shadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#6b0020" flood-opacity="0.4"/>
+            </filter>
+            <filter id="b1-glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- ── HAND ── -->
+          <g transform="translate(160, 420)">
+            <!-- Palm / wrist -->
+            <ellipse cx="40" cy="80" rx="30" ry="55" fill="#f4c2a1" stroke="#e8a87c" stroke-width="1"/>
+            <!-- Thumb -->
+            <path d="M12 60 Q0 45 5 28 Q10 15 20 22 Q25 35 18 55Z" fill="#f4c2a1" stroke="#e8a87c" stroke-width="0.8"/>
+            <!-- Index finger -->
+            <path d="M22 45 Q18 20 24 5 Q30 -5 36 5 Q40 18 36 42Z" fill="#f5c8a8" stroke="#e8a87c" stroke-width="0.8"/>
+            <!-- Middle finger -->
+            <path d="M36 42 Q34 15 40 2 Q46 -8 52 3 Q55 16 50 40Z" fill="#f5c8a8" stroke="#e8a87c" stroke-width="0.8"/>
+            <!-- Ring finger -->
+            <path d="M49 43 Q48 18 54 7 Q60 -3 65 8 Q67 20 63 44Z" fill="#f4c2a1" stroke="#e8a87c" stroke-width="0.8"/>
+            <!-- Pinky -->
+            <path d="M62 48 Q62 28 66 18 Q70 10 74 18 Q76 28 73 48Z" fill="#f4c2a1" stroke="#e8a87c" stroke-width="0.8"/>
+            <!-- Knuckle lines -->
+            <path d="M24 38 Q30 35 36 38" stroke="#d4956e" stroke-width="0.6" fill="none"/>
+            <path d="M38 36 Q43 33 49 36" stroke="#d4956e" stroke-width="0.6" fill="none"/>
+            <path d="M51 38 Q56 35 62 38" stroke="#d4956e" stroke-width="0.6" fill="none"/>
+            <!-- Wrist shading -->
+            <ellipse cx="40" cy="125" rx="28" ry="12" fill="#e8a87c" opacity="0.5"/>
+          </g>
+
+          <!-- ── STEMS (17 stems fanning out) ── -->
+          <g stroke-width="2.5" fill="none">
+            <!-- back stems -->
+            <path d="M200 430 Q185 350 160 200" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M200 430 Q215 355 235 195" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M200 430 Q175 340 145 185" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 430 Q225 345 250 188" stroke="#1b4332" stroke-width="2"/>
+            <!-- mid stems -->
+            <path d="M200 430 Q190 345 178 195" stroke="#40916c" stroke-width="2.2"/>
+            <path d="M200 430 Q210 348 222 192" stroke="#40916c" stroke-width="2.2"/>
+            <path d="M200 430 Q193 340 190 195" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 430 Q207 342 210 192" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 430 Q196 338 200 192" stroke="#52b788" stroke-width="2.5"/>
+            <!-- front stems -->
+            <path d="M200 430 Q180 335 165 192" stroke="#40916c" stroke-width="2.4"/>
+            <path d="M200 430 Q220 335 235 192" stroke="#40916c" stroke-width="2.4"/>
+            <path d="M200 430 Q170 328 150 188" stroke="#2d6a4f" stroke-width="2.2"/>
+            <path d="M200 430 Q230 328 250 185" stroke="#2d6a4f" stroke-width="2.2"/>
+            <path d="M200 430 Q158 322 135 182" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 430 Q242 322 265 178" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 430 Q148 315 120 178" stroke="#2d6a4f" stroke-width="1.8"/>
+            <path d="M200 430 Q252 315 275 172" stroke="#2d6a4f" stroke-width="1.8"/>
+          </g>
+
+          <!-- ── LEAVES ── -->
+          <g fill="url(#b1-leaf)" opacity="0.9">
+            <path d="M160 320 Q140 295 155 270 Q165 285 160 320Z"/>
+            <path d="M175 310 Q155 285 168 260 Q178 275 175 310Z"/>
+            <path d="M225 308 Q245 283 235 258 Q222 273 225 308Z"/>
+            <path d="M240 315 Q262 290 252 265 Q238 280 240 315Z"/>
+            <path d="M145 340 Q122 318 135 292 Q148 308 145 340Z"/>
+            <path d="M255 338 Q278 314 268 288 Q253 305 255 338Z"/>
+          </g>
+
+          <!-- ══ 17 TULIP HEADS ══ -->
+
+          <!-- Row back (5 tulips) -->
+          <!-- T1 deep red -->
+          <g transform="translate(160,200)" filter="url(#b1-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b1-petal-deep)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#a01040" opacity="0.9"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#a01040" opacity="0.9"/>
+            <ellipse cx="0" cy="-24" rx="6" ry="3" fill="#ff4d6d" opacity="0.4"/>
+          </g>
+          <!-- T2 crimson -->
+          <g transform="translate(235,195)" filter="url(#b1-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b1-petal-r)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#c9184a" opacity="0.85"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#c9184a" opacity="0.85"/>
+            <ellipse cx="0" cy="-24" rx="6" ry="3" fill="#ffb3c1" opacity="0.5"/>
+          </g>
+          <!-- T3 dark -->
+          <g transform="translate(145,185)" filter="url(#b1-shadow)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="#8b0a2a"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020"/>
+            <ellipse cx="0" cy="-22" rx="5" ry="2.5" fill="#ff85a1" opacity="0.4"/>
+          </g>
+          <!-- T4 pink -->
+          <g transform="translate(250,188)" filter="url(#b1-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b1-petal-pink)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#ff4d6d" opacity="0.8"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#ff4d6d" opacity="0.8"/>
+            <ellipse cx="0" cy="-24" rx="6" ry="3" fill="#ffc2d1" opacity="0.6"/>
+          </g>
+          <!-- T5 red -->
+          <g transform="translate(200,192)" filter="url(#b1-shadow)">
+            <path d="M0,0 Q-13,-24 -9,-44 Q0,-55 9,-44 Q13,-24 0,0Z" fill="url(#b1-petal-deep)"/>
+            <path d="M0,0 Q-20,-20 -20,-40 Q-10,-52 -2,-40 Q-2,-20 0,0Z" fill="#9b003f"/>
+            <path d="M0,0 Q20,-20 20,-40 Q10,-52 2,-40 Q2,-20 0,0Z" fill="#9b003f"/>
+            <ellipse cx="0" cy="-26" rx="7" ry="3" fill="#ff4d6d" opacity="0.5"/>
+          </g>
+
+          <!-- Row mid (6 tulips) -->
+          <!-- T6 -->
+          <g transform="translate(178,195)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b1-petal-r)"/>
+            <path d="M0,0 Q-17,-18 -17,-38 Q-9,-50 -1,-38 Q-1,-18 0,0Z" fill="#c9184a" opacity="0.8"/>
+            <path d="M0,0 Q17,-18 17,-38 Q9,-50 1,-38 Q1,-18 0,0Z" fill="#c9184a" opacity="0.8"/>
+          </g>
+          <!-- T7 -->
+          <g transform="translate(222,192)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b1-petal-deep)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#a01040"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#a01040"/>
+          </g>
+          <!-- T8 -->
+          <g transform="translate(190,195)">
+            <path d="M0,0 Q-12,-21 -8,-41 Q0,-51 8,-41 Q12,-21 0,0Z" fill="url(#b1-petal-pink)"/>
+            <path d="M0,0 Q-17,-17 -17,-37 Q-9,-49 -1,-37 Q-1,-17 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+            <path d="M0,0 Q17,-17 17,-37 Q9,-49 1,-37 Q1,-17 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+          </g>
+          <!-- T9 -->
+          <g transform="translate(210,192)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b1-petal-r)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#be123c"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#be123c"/>
+          </g>
+          <!-- T10 -->
+          <g transform="translate(165,192)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="#c9184a"/>
+            <path d="M0,0 Q-15,-17 -15,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#8b0a2a"/>
+            <path d="M0,0 Q15,-17 15,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#8b0a2a"/>
+          </g>
+          <!-- T11 -->
+          <g transform="translate(235,192)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="url(#b1-petal-pink)"/>
+            <path d="M0,0 Q-15,-17 -15,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#ff85a1" opacity="0.8"/>
+            <path d="M0,0 Q15,-17 15,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#ff85a1" opacity="0.8"/>
+          </g>
+
+          <!-- Row front (6 tulips) -->
+          <!-- T12 -->
+          <g transform="translate(150,188)">
+            <path d="M0,0 Q-13,-23 -9,-43 Q0,-54 9,-43 Q13,-23 0,0Z" fill="url(#b1-petal-deep)" filter="url(#b1-glow)"/>
+            <path d="M0,0 Q-19,-19 -19,-39 Q-10,-51 -2,-39 Q-2,-19 0,0Z" fill="#9b003f"/>
+            <path d="M0,0 Q19,-19 19,-39 Q10,-51 2,-39 Q2,-19 0,0Z" fill="#9b003f"/>
+          </g>
+          <!-- T13 -->
+          <g transform="translate(250,185)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b1-petal-r)" filter="url(#b1-glow)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#e63950" opacity="0.8"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#e63950" opacity="0.8"/>
+          </g>
+          <!-- T14 -->
+          <g transform="translate(135,182)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="#be123c"/>
+            <path d="M0,0 Q-15,-16 -15,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020"/>
+            <path d="M0,0 Q15,-16 15,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020"/>
+          </g>
+          <!-- T15 -->
+          <g transform="translate(265,178)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b1-petal-pink)"/>
+            <path d="M0,0 Q-15,-16 -15,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ffc2d1" opacity="0.7"/>
+            <path d="M0,0 Q15,-16 15,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ffc2d1" opacity="0.7"/>
+          </g>
+          <!-- T16 -->
+          <g transform="translate(120,178)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b1-petal-deep)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#8b0a2a"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#8b0a2a"/>
+          </g>
+          <!-- T17 -->
+          <g transform="translate(275,172)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b1-petal-r)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#e63950" opacity="0.8"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#e63950" opacity="0.8"/>
+          </g>
+
+          <!-- ── RIBBON ── -->
+          <g transform="translate(200, 445)">
+            <!-- Main ribbon band -->
+            <path d="M-45,-8 Q0,-14 45,-8 Q40,0 0,4 Q-40,0 -45,-8Z" fill="url(#b1-ribbon)" opacity="0.95"/>
+            <!-- Left tail -->
+            <path d="M-45,-8 Q-70,5 -80,30 Q-65,20 -40,10 Q-38,0 -45,-8Z" fill="#ffc2d1" opacity="0.9"/>
+            <!-- Right tail -->
+            <path d="M45,-8 Q70,5 80,30 Q65,20 40,10 Q38,0 45,-8Z" fill="#ffc2d1" opacity="0.9"/>
+            <!-- Ribbon knot -->
+            <ellipse cx="0" cy="-2" rx="10" ry="8" fill="#ff85a1"/>
+            <ellipse cx="0" cy="-2" rx="6" ry="5" fill="#ffc2d1"/>
+            <!-- Ribbon text -->
+            <text x="0" y="1" text-anchor="middle" font-family="EB Garamond,serif" font-style="italic" font-size="9" fill="#6b0020" opacity="0.9">for Zoha 🌷</text>
+          </g>
+
+          <!-- Tulip count badge -->
+          <circle cx="318" cy="175" r="28" fill="url(#b1-petal-deep)" opacity="0.92"/>
+          <circle cx="318" cy="175" r="24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <text x="318" y="170" text-anchor="middle" font-family="Cinzel Decorative,serif" font-size="13" font-weight="bold" fill="white">17</text>
+          <text x="318" y="182" text-anchor="middle" font-family="EB Garamond,serif" font-size="8" fill="rgba(255,255,255,0.85)">tulips</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col" id="tc1">
+    <div class="text-bar"><div class="text-bar-line"></div><span class="text-bar-tulip">🌷</span></div>
+    <div class="text-heading">She Shares Every Breath of Her Life With Me</div>
+    <div class="text-body">
+      Zoha, you are the only person in this entire world who makes me feel like 
+      every second of life is worth living simply because you choose to share it with me. 
+      From the smallest, most irrelevant moments — a funny dream, a craving at midnight, 
+      a random thought at 3 AM — you share it all with me, and somehow that makes it 
+      feel extraordinary. You never let a single minute pass without making me feel like 
+      I am a part of your world. No one has ever made me feel that chosen, that included, 
+      that loved. You don't just call me your best friend — you <em>show</em> me, every single day.
+    </div>
+    <div class="text-accent">✦ &nbsp;"Every moment you share becomes my favourite memory."</div>
+  </div>
+
+  <div class="text-num">01</div>
+</section>
+
+<!-- ══ DIVIDER 2 ══ -->
+<div class="divider"><div class="div-line"></div><div class="div-icon">🌷</div><div class="div-line"></div></div>
+
+<!-- ═══════════════ SECTION 2 ═══════════════ -->
+<section class="section" id="s2">
+
+  <div class="bouquet-col">
+    <div class="bouquet-frame" id="bf2">
+      <div class="bouquet-svg-wrap">
+        <!-- BOUQUET 2: Pink & blush tulips, slightly different style -->
+        <svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="b2-petal-a" cx="50%" cy="60%" r="55%">
+              <stop offset="0%" stop-color="#ffd6e7"/>
+              <stop offset="45%" stop-color="#ff85a1"/>
+              <stop offset="100%" stop-color="#c9184a"/>
+            </radialGradient>
+            <radialGradient id="b2-petal-b" cx="50%" cy="55%" r="50%">
+              <stop offset="0%" stop-color="#ffb3c6"/>
+              <stop offset="50%" stop-color="#e63950"/>
+              <stop offset="100%" stop-color="#8b0a2a"/>
+            </radialGradient>
+            <radialGradient id="b2-petal-c" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#fff0f3"/>
+              <stop offset="40%" stop-color="#ffb3c1"/>
+              <stop offset="100%" stop-color="#ff4d6d"/>
+            </radialGradient>
+            <linearGradient id="b2-stem" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1b4332"/>
+              <stop offset="50%" stop-color="#40916c"/>
+              <stop offset="100%" stop-color="#2d6a4f"/>
+            </linearGradient>
+            <linearGradient id="b2-ribbon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c9184a"/>
+              <stop offset="100%" stop-color="#9b003f"/>
+            </linearGradient>
+            <filter id="b2-shadow">
+              <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#9b003f" flood-opacity="0.35"/>
+            </filter>
+          </defs>
+
+          <!-- ── HAND ── -->
+          <g transform="translate(162, 422)">
+            <ellipse cx="38" cy="78" rx="29" ry="53" fill="#f7d0b5" stroke="#e8b896" stroke-width="1"/>
+            <path d="M10 58 Q-2 43 3 26 Q8 13 18 20 Q23 33 16 53Z" fill="#f7d0b5" stroke="#e8b896" stroke-width="0.8"/>
+            <path d="M20 43 Q16 18 22 3 Q28 -7 34 3 Q38 16 34 40Z" fill="#f7cdb0" stroke="#e8b896" stroke-width="0.8"/>
+            <path d="M34 40 Q32 13 38 0 Q44 -10 50 1 Q53 14 48 38Z" fill="#f7cdb0" stroke="#e8b896" stroke-width="0.8"/>
+            <path d="M47 41 Q46 16 52 5 Q58 -5 63 6 Q65 18 61 42Z" fill="#f7d0b5" stroke="#e8b896" stroke-width="0.8"/>
+            <path d="M60 46 Q60 26 64 16 Q68 8 72 16 Q74 26 71 46Z" fill="#f7d0b5" stroke="#e8b896" stroke-width="0.8"/>
+            <path d="M22 36 Q28 33 34 36" stroke="#d4a07a" stroke-width="0.6" fill="none"/>
+            <path d="M36 34 Q41 31 47 34" stroke="#d4a07a" stroke-width="0.6" fill="none"/>
+            <path d="M49 36 Q54 33 60 36" stroke="#d4a07a" stroke-width="0.6" fill="none"/>
+            <ellipse cx="38" cy="123" rx="27" ry="11" fill="#e8b896" opacity="0.45"/>
+          </g>
+
+          <!-- ── STEMS ── -->
+          <g fill="none">
+            <path d="M200 432 Q183 350 158 200" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 432 Q217 353 237 196" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 432 Q173 342 143 185" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M200 432 Q227 344 252 185" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M200 432 Q190 346 180 196" stroke="#40916c" stroke-width="2.2"/>
+            <path d="M200 432 Q210 348 222 194" stroke="#40916c" stroke-width="2.2"/>
+            <path d="M200 432 Q193 342 192 196" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 432 Q207 344 210 194" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 432 Q197 340 200 193" stroke="#52b788" stroke-width="2.5"/>
+            <path d="M200 432 Q180 337 167 194" stroke="#40916c" stroke-width="2.3"/>
+            <path d="M200 432 Q220 337 234 192" stroke="#40916c" stroke-width="2.3"/>
+            <path d="M200 432 Q168 328 150 188" stroke="#2d6a4f" stroke-width="2.1"/>
+            <path d="M200 432 Q232 328 252 186" stroke="#2d6a4f" stroke-width="2.1"/>
+            <path d="M200 432 Q158 320 135 180" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 432 Q242 320 264 178" stroke="#1b4332" stroke-width="2"/>
+            <path d="M200 432 Q146 312 118 175" stroke="#2d6a4f" stroke-width="1.8"/>
+            <path d="M200 432 Q254 312 278 172" stroke="#2d6a4f" stroke-width="1.8"/>
+          </g>
+
+          <!-- ── LEAVES ── -->
+          <g fill="#2d6a4f" opacity="0.85">
+            <path d="M162 322 Q140 296 157 270 Q168 286 162 322Z"/>
+            <path d="M177 312 Q154 286 169 260 Q180 276 177 312Z"/>
+            <path d="M224 310 Q246 284 234 258 Q220 274 224 310Z"/>
+            <path d="M242 318 Q265 292 254 266 Q240 282 242 318Z"/>
+            <path d="M147 342 Q123 318 137 292 Q150 308 147 342Z"/>
+            <path d="M253 340 Q277 315 266 288 Q252 305 253 340Z"/>
+          </g>
+
+          <!-- ══ 17 TULIP HEADS — pink palette ══ -->
+          <!-- Back row (5) -->
+          <g transform="translate(158,200)" filter="url(#b2-shadow)">
+            <path d="M0,0 Q-13,-23 -9,-43 Q0,-54 9,-43 Q13,-23 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-19,-19 -19,-39 Q-10,-51 -2,-39 Q-2,-19 0,0Z" fill="#ff85a1" opacity="0.85"/>
+            <path d="M0,0 Q19,-19 19,-39 Q10,-51 2,-39 Q2,-19 0,0Z" fill="#ff85a1" opacity="0.85"/>
+            <ellipse cx="0" cy="-26" rx="7" ry="3" fill="#fff0f3" opacity="0.6"/>
+          </g>
+          <g transform="translate(237,196)" filter="url(#b2-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#e63950" opacity="0.8"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#e63950" opacity="0.8"/>
+            <ellipse cx="0" cy="-24" rx="6" ry="3" fill="#ffd6e7" opacity="0.5"/>
+          </g>
+          <g transform="translate(143,185)" filter="url(#b2-shadow)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b2-petal-c)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+          </g>
+          <g transform="translate(252,185)" filter="url(#b2-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#ffb3c6" opacity="0.8"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#ffb3c6" opacity="0.8"/>
+          </g>
+          <g transform="translate(200,193)" filter="url(#b2-shadow)">
+            <path d="M0,0 Q-14,-25 -10,-46 Q0,-57 10,-46 Q14,-25 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-21,-21 -21,-42 Q-11,-54 -3,-42 Q-3,-21 0,0Z" fill="#c9184a" opacity="0.85"/>
+            <path d="M0,0 Q21,-21 21,-42 Q11,-54 3,-42 Q3,-21 0,0Z" fill="#c9184a" opacity="0.85"/>
+            <ellipse cx="0" cy="-28" rx="8" ry="3.5" fill="#ffd6e7" opacity="0.55"/>
+          </g>
+
+          <!-- Mid row (6) -->
+          <g transform="translate(180,196)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b2-petal-c)"/>
+            <path d="M0,0 Q-17,-18 -17,-38 Q-9,-50 -1,-38 Q-1,-18 0,0Z" fill="#ff85a1" opacity="0.8"/>
+            <path d="M0,0 Q17,-18 17,-38 Q9,-50 1,-38 Q1,-18 0,0Z" fill="#ff85a1" opacity="0.8"/>
+          </g>
+          <g transform="translate(222,194)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-16,-17 -16,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#c9184a" opacity="0.8"/>
+            <path d="M0,0 Q16,-17 16,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#c9184a" opacity="0.8"/>
+          </g>
+          <g transform="translate(192,196)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-17,-18 -17,-38 Q-9,-50 -1,-38 Q-1,-18 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+            <path d="M0,0 Q17,-18 17,-38 Q9,-50 1,-38 Q1,-18 0,0Z" fill="#ff4d6d" opacity="0.75"/>
+          </g>
+          <g transform="translate(211,194)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b2-petal-c)"/>
+            <path d="M0,0 Q-15,-16 -15,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ffb3c6" opacity="0.75"/>
+            <path d="M0,0 Q15,-16 15,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ffb3c6" opacity="0.75"/>
+          </g>
+          <g transform="translate(167,194)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-15,-17 -15,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#e63950" opacity="0.8"/>
+            <path d="M0,0 Q15,-17 15,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#e63950" opacity="0.8"/>
+          </g>
+          <g transform="translate(234,192)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-15,-17 -15,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#ff85a1" opacity="0.75"/>
+            <path d="M0,0 Q15,-17 15,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#ff85a1" opacity="0.75"/>
+          </g>
+
+          <!-- Front row (6) -->
+          <g transform="translate(150,188)">
+            <path d="M0,0 Q-13,-24 -9,-44 Q0,-55 9,-44 Q13,-24 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-19,-20 -19,-40 Q-10,-52 -2,-40 Q-2,-20 0,0Z" fill="#be123c"/>
+            <path d="M0,0 Q19,-20 19,-40 Q10,-52 2,-40 Q2,-20 0,0Z" fill="#be123c"/>
+          </g>
+          <g transform="translate(252,186)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-17,-18 -17,-38 Q-9,-50 -1,-38 Q-1,-18 0,0Z" fill="#ff85a1" opacity="0.8"/>
+            <path d="M0,0 Q17,-18 17,-38 Q9,-50 1,-38 Q1,-18 0,0Z" fill="#ff85a1" opacity="0.8"/>
+          </g>
+          <g transform="translate(135,180)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b2-petal-c)"/>
+            <path d="M0,0 Q-15,-16 -15,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.7"/>
+            <path d="M0,0 Q15,-16 15,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.7"/>
+          </g>
+          <g transform="translate(264,178)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b2-petal-b)"/>
+            <path d="M0,0 Q-15,-16 -15,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#c9184a" opacity="0.8"/>
+            <path d="M0,0 Q15,-16 15,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#c9184a" opacity="0.8"/>
+          </g>
+          <g transform="translate(118,175)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b2-petal-a)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#ff85a1" opacity="0.75"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#ff85a1" opacity="0.75"/>
+          </g>
+          <g transform="translate(278,172)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b2-petal-c)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#e63950" opacity="0.75"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#e63950" opacity="0.75"/>
+          </g>
+
+          <!-- ── RIBBON (deep crimson) ── -->
+          <g transform="translate(200, 448)">
+            <path d="M-48,-9 Q0,-16 48,-9 Q44,1 0,5 Q-44,1 -48,-9Z" fill="#9b003f" opacity="0.92"/>
+            <path d="M-48,-9 Q-74,6 -84,32 Q-68,22 -42,11 Q-40,1 -48,-9Z" fill="#be123c" opacity="0.85"/>
+            <path d="M48,-9 Q74,6 84,32 Q68,22 42,11 Q40,1 48,-9Z" fill="#be123c" opacity="0.85"/>
+            <ellipse cx="0" cy="-3" rx="11" ry="9" fill="#c9184a"/>
+            <ellipse cx="0" cy="-3" rx="6" ry="5" fill="#ff4d6d"/>
+            <text x="0" y="0" text-anchor="middle" font-family="EB Garamond,serif" font-style="italic" font-size="9" fill="white">my world 🌷</text>
+          </g>
+
+          <!-- Badge -->
+          <circle cx="318" cy="175" r="28" fill="#c9184a" opacity="0.92"/>
+          <circle cx="318" cy="175" r="24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <text x="318" y="170" text-anchor="middle" font-family="Cinzel Decorative,serif" font-size="13" font-weight="bold" fill="white">17</text>
+          <text x="318" y="182" text-anchor="middle" font-family="EB Garamond,serif" font-size="8" fill="rgba(255,255,255,0.85)">tulips</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col" id="tc2">
+    <div class="text-bar"><div class="text-bar-line"></div><span class="text-bar-tulip">🌷</span></div>
+    <div class="text-heading">The Only One I Love in This Entire World</div>
+    <div class="text-body">
+      In a world full of people, I only have eyes for one soul — and that soul is yours, Zoha. 
+      You are not just my best friend; you are the one person I would walk through every storm for, 
+      without even thinking twice. There is nobody else in this world that I love the way I love you. 
+      Not even close. You are the best creature God has ever placed on this earth, 
+      and I say that with every bit of certainty in my heart. 
+      Your kindness, your laughter, your fierceness, your soul — 
+      I have witnessed it all with my own eyes, and I am in awe of you every single day. 
+      God was in His finest mood when He created you, Zoha. Truly.
+    </div>
+    <div class="text-accent">✦ &nbsp;"You are God's most beautiful creation — and I am lucky to witness it."</div>
+  </div>
+
+  <div class="text-num">02</div>
+</section>
+
+<!-- ══ DIVIDER 3 ══ -->
+<div class="divider"><div class="div-line"></div><div class="div-icon">🌷</div><div class="div-line"></div></div>
+
+<!-- ═══════════════ SECTION 3 ═══════════════ -->
+<section class="section" id="s3">
+
+  <div class="bouquet-col">
+    <div class="bouquet-frame" id="bf3">
+      <div class="bouquet-svg-wrap">
+        <!-- BOUQUET 3: Mixed red+pink+blush, fuller arrangement -->
+        <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="b3-red" cx="50%" cy="55%" r="55%">
+              <stop offset="0%" stop-color="#ff4d6d"/>
+              <stop offset="50%" stop-color="#c9184a"/>
+              <stop offset="100%" stop-color="#6b0020"/>
+            </radialGradient>
+            <radialGradient id="b3-pink" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#ffd6e7"/>
+              <stop offset="45%" stop-color="#ff85a1"/>
+              <stop offset="100%" stop-color="#c9184a"/>
+            </radialGradient>
+            <radialGradient id="b3-blush" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#fff5f7"/>
+              <stop offset="50%" stop-color="#ffc2d1"/>
+              <stop offset="100%" stop-color="#ff85a1"/>
+            </radialGradient>
+            <radialGradient id="b3-deep" cx="50%" cy="55%" r="55%">
+              <stop offset="0%" stop-color="#e63950"/>
+              <stop offset="55%" stop-color="#9b003f"/>
+              <stop offset="100%" stop-color="#4a0015"/>
+            </radialGradient>
+            <linearGradient id="b3-ribbon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffc2d1"/>
+              <stop offset="50%" stop-color="#ff85a1"/>
+              <stop offset="100%" stop-color="#c9184a"/>
+            </linearGradient>
+            <filter id="b3-glow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <filter id="b3-shadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#4a0015" flood-opacity="0.4"/>
+            </filter>
+          </defs>
+
+          <!-- ── HAND (slightly tilted, elegant) ── -->
+          <g transform="translate(158, 425) rotate(-5, 40, 80)">
+            <ellipse cx="40" cy="80" rx="31" ry="56" fill="#f2bfa0" stroke="#e0a882" stroke-width="1"/>
+            <path d="M10 58 Q-2 42 4 24 Q10 11 20 18 Q25 32 17 54Z" fill="#f2bfa0" stroke="#e0a882" stroke-width="0.8"/>
+            <path d="M21 44 Q17 17 23 2 Q29 -8 35 2 Q39 15 35 41Z" fill="#f3c5a5" stroke="#e0a882" stroke-width="0.8"/>
+            <path d="M35 41 Q33 13 39 0 Q45 -11 51 0 Q54 13 49 39Z" fill="#f3c5a5" stroke="#e0a882" stroke-width="0.8"/>
+            <path d="M48 42 Q47 16 53 5 Q59 -6 64 5 Q67 18 62 43Z" fill="#f2bfa0" stroke="#e0a882" stroke-width="0.8"/>
+            <path d="M61 47 Q61 26 66 15 Q70 6 74 15 Q77 25 74 48Z" fill="#f2bfa0" stroke="#e0a882" stroke-width="0.8"/>
+            <path d="M23 37 Q29 34 35 37" stroke="#cc8d62" stroke-width="0.6" fill="none"/>
+            <path d="M37 35 Q42 32 48 35" stroke="#cc8d62" stroke-width="0.6" fill="none"/>
+            <path d="M50 37 Q55 34 61 37" stroke="#cc8d62" stroke-width="0.6" fill="none"/>
+            <ellipse cx="40" cy="127" rx="29" ry="12" fill="#e0a882" opacity="0.5"/>
+          </g>
+
+          <!-- ── STEMS (splayed fan) ── -->
+          <g fill="none">
+            <!-- Outermost back -->
+            <path d="M200 438 Q178 350 152 192" stroke="#1b4332" stroke-width="1.8"/>
+            <path d="M200 438 Q222 352 245 188" stroke="#1b4332" stroke-width="1.8"/>
+            <!-- Far back -->
+            <path d="M200 438 Q170 344 138 180" stroke="#2d6a4f" stroke-width="1.9"/>
+            <path d="M200 438 Q230 344 258 177" stroke="#2d6a4f" stroke-width="1.9"/>
+            <!-- Mid back -->
+            <path d="M200 438 Q183 346 168 192" stroke="#40916c" stroke-width="2"/>
+            <path d="M200 438 Q217 348 230 190" stroke="#40916c" stroke-width="2"/>
+            <!-- Centre cluster -->
+            <path d="M200 438 Q193 342 190 193" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 438 Q207 344 212 191" stroke="#52b788" stroke-width="2.2"/>
+            <path d="M200 438 Q197 339 200 190" stroke="#52b788" stroke-width="2.5"/>
+            <!-- Front mid -->
+            <path d="M200 438 Q180 336 164 192" stroke="#40916c" stroke-width="2.2"/>
+            <path d="M200 438 Q220 336 238 190" stroke="#40916c" stroke-width="2.2"/>
+            <!-- Front -->
+            <path d="M200 438 Q167 328 148 187" stroke="#2d6a4f" stroke-width="2"/>
+            <path d="M200 438 Q233 328 255 184" stroke="#2d6a4f" stroke-width="2"/>
+            <!-- Outer front -->
+            <path d="M200 438 Q155 320 130 178" stroke="#1b4332" stroke-width="1.9"/>
+            <path d="M200 438 Q245 320 268 174" stroke="#1b4332" stroke-width="1.9"/>
+            <!-- Widest -->
+            <path d="M200 438 Q143 312 115 172" stroke="#2d6a4f" stroke-width="1.7"/>
+            <path d="M200 438 Q257 312 282 168" stroke="#2d6a4f" stroke-width="1.7"/>
+          </g>
+
+          <!-- ── LEAVES ── -->
+          <g fill="#2d6a4f" opacity="0.88">
+            <path d="M163 325 Q141 298 158 272 Q169 288 163 325Z"/>
+            <path d="M178 315 Q155 288 171 262 Q182 278 178 315Z"/>
+            <path d="M225 312 Q248 285 236 259 Q222 275 225 312Z"/>
+            <path d="M244 320 Q268 293 257 267 Q242 283 244 320Z"/>
+            <path d="M148 344 Q124 319 138 292 Q151 308 148 344Z"/>
+            <path d="M255 342 Q280 316 268 289 Q254 306 255 342Z"/>
+            <path d="M133 360 Q108 336 123 308 Q137 325 133 360Z"/>
+            <path d="M268 358 Q293 333 282 306 Q267 323 268 358Z"/>
+          </g>
+
+          <!-- ══ 17 TULIPS — mixed warm palette ══ -->
+          <!-- Back tier (4) -->
+          <g transform="translate(152,192)" filter="url(#b3-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b3-deep)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#6b0020" opacity="0.85"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#6b0020" opacity="0.85"/>
+            <ellipse cx="0" cy="-24" rx="6" ry="3" fill="#ff4d6d" opacity="0.5"/>
+          </g>
+          <g transform="translate(245,188)" filter="url(#b3-shadow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b3-blush)"/>
+            <path d="M0,0 Q-17,-18 -17,-38 Q-9,-50 -1,-38 Q-1,-18 0,0Z" fill="#ffc2d1" opacity="0.8"/>
+            <path d="M0,0 Q17,-18 17,-38 Q9,-50 1,-38 Q1,-18 0,0Z" fill="#ffc2d1" opacity="0.8"/>
+            <ellipse cx="0" cy="-23" rx="6" ry="3" fill="#fff5f7" opacity="0.6"/>
+          </g>
+          <g transform="translate(138,180)" filter="url(#b3-shadow)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b3-pink)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ff85a1" opacity="0.75"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ff85a1" opacity="0.75"/>
+          </g>
+          <g transform="translate(258,177)" filter="url(#b3-shadow)">
+            <path d="M0,0 Q-11,-21 -7,-41 Q0,-51 7,-41 Q11,-21 0,0Z" fill="url(#b3-red)"/>
+            <path d="M0,0 Q-15,-17 -15,-37 Q-8,-49 0,-37 Q0,-17 0,0Z" fill="#c9184a" opacity="0.8"/>
+            <path d="M0,0 Q15,-17 15,-37 Q8,-49 0,-37 Q0,-17 0,0Z" fill="#c9184a" opacity="0.8"/>
+          </g>
+
+          <!-- Middle tier (5) -->
+          <g transform="translate(168,192)" filter="url(#b3-glow)">
+            <path d="M0,0 Q-13,-23 -9,-43 Q0,-54 9,-43 Q13,-23 0,0Z" fill="url(#b3-red)"/>
+            <path d="M0,0 Q-19,-19 -19,-39 Q-10,-51 -2,-39 Q-2,-19 0,0Z" fill="#9b003f"/>
+            <path d="M0,0 Q19,-19 19,-39 Q10,-51 2,-39 Q2,-19 0,0Z" fill="#9b003f"/>
+          </g>
+          <g transform="translate(230,190)" filter="url(#b3-glow)">
+            <path d="M0,0 Q-12,-22 -8,-42 Q0,-52 8,-42 Q12,-22 0,0Z" fill="url(#b3-blush)"/>
+            <path d="M0,0 Q-18,-18 -18,-38 Q-10,-50 -2,-38 Q-2,-18 0,0Z" fill="#ffb3c6" opacity="0.8"/>
+            <path d="M0,0 Q18,-18 18,-38 Q10,-50 2,-38 Q2,-18 0,0Z" fill="#ffb3c6" opacity="0.8"/>
+          </g>
+          <g transform="translate(190,193)">
+            <path d="M0,0 Q-13,-24 -9,-44 Q0,-55 9,-44 Q13,-24 0,0Z" fill="url(#b3-pink)"/>
+            <path d="M0,0 Q-19,-20 -19,-40 Q-10,-52 -2,-40 Q-2,-20 0,0Z" fill="#e63950" opacity="0.8"/>
+            <path d="M0,0 Q19,-20 19,-40 Q10,-52 2,-40 Q2,-20 0,0Z" fill="#e63950" opacity="0.8"/>
+            <ellipse cx="0" cy="-27" rx="7" ry="3" fill="#ffd6e7" opacity="0.55"/>
+          </g>
+          <g transform="translate(212,191)">
+            <path d="M0,0 Q-12,-23 -8,-43 Q0,-53 8,-43 Q12,-23 0,0Z" fill="url(#b3-deep)"/>
+            <path d="M0,0 Q-18,-19 -18,-39 Q-9,-51 -1,-39 Q-1,-19 0,0Z" fill="#8b0a2a"/>
+            <path d="M0,0 Q18,-19 18,-39 Q9,-51 1,-39 Q1,-19 0,0Z" fill="#8b0a2a"/>
+          </g>
+          <g transform="translate(200,190)">
+            <path d="M0,0 Q-14,-26 -10,-47 Q0,-58 10,-47 Q14,-26 0,0Z" fill="url(#b3-red)" filter="url(#b3-glow)"/>
+            <path d="M0,0 Q-21,-22 -21,-43 Q-11,-55 -3,-43 Q-3,-22 0,0Z" fill="#c9184a"/>
+            <path d="M0,0 Q21,-22 21,-43 Q11,-55 3,-43 Q3,-22 0,0Z" fill="#c9184a"/>
+            <ellipse cx="0" cy="-30" rx="8" ry="3.5" fill="#ff4d6d" opacity="0.6"/>
+          </g>
+
+          <!-- Front tier (4) -->
+          <g transform="translate(148,187)">
+            <path d="M0,0 Q-13,-24 -9,-44 Q0,-55 9,-44 Q13,-24 0,0Z" fill="url(#b3-blush)"/>
+            <path d="M0,0 Q-19,-20 -19,-40 Q-10,-52 -2,-40 Q-2,-20 0,0Z" fill="#ff85a1" opacity="0.8"/>
+            <path d="M0,0 Q19,-20 19,-40 Q10,-52 2,-40 Q2,-20 0,0Z" fill="#ff85a1" opacity="0.8"/>
+          </g>
+          <g transform="translate(255,184)">
+            <path d="M0,0 Q-13,-24 -9,-44 Q0,-55 9,-44 Q13,-24 0,0Z" fill="url(#b3-red)"/>
+            <path d="M0,0 Q-19,-20 -19,-40 Q-10,-52 -2,-40 Q-2,-20 0,0Z" fill="#c9184a" opacity="0.85"/>
+            <path d="M0,0 Q19,-20 19,-40 Q10,-52 2,-40 Q2,-20 0,0Z" fill="#c9184a" opacity="0.85"/>
+          </g>
+          <g transform="translate(130,178)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b3-pink)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.7"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#ff4d6d" opacity="0.7"/>
+          </g>
+          <g transform="translate(268,174)">
+            <path d="M0,0 Q-11,-20 -7,-40 Q0,-50 7,-40 Q11,-20 0,0Z" fill="url(#b3-deep)"/>
+            <path d="M0,0 Q-16,-16 -16,-36 Q-8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020" opacity="0.75"/>
+            <path d="M0,0 Q16,-16 16,-36 Q8,-48 0,-36 Q0,-16 0,0Z" fill="#6b0020" opacity="0.75"/>
+          </g>
+
+          <!-- Widest front pair (completes 17) -->
+          <g transform="translate(115,172)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b3-blush)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#ffc2d1" opacity="0.7"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#ffc2d1" opacity="0.7"/>
+          </g>
+          <g transform="translate(282,168)">
+            <path d="M0,0 Q-10,-19 -6,-38 Q0,-48 6,-38 Q10,-19 0,0Z" fill="url(#b3-red)"/>
+            <path d="M0,0 Q-14,-15 -14,-34 Q-7,-46 0,-34 Q0,-15 0,0Z" fill="#c9184a" opacity="0.75"/>
+            <path d="M0,0 Q14,-15 14,-34 Q7,-46 0,-34 Q0,-15 0,0Z" fill="#c9184a" opacity="0.75"/>
+          </g>
+
+          <!-- ── RIBBON (elegant gradient) ── -->
+          <g transform="translate(200, 450)">
+            <path d="M-50,-10 Q0,-18 50,-10 Q45,2 0,6 Q-45,2 -50,-10Z" fill="url(#b3-ribbon)" opacity="0.94"/>
+            <path d="M-50,-10 Q-78,8 -90,35 Q-72,24 -44,13 Q-42,1 -50,-10Z" fill="#ff85a1" opacity="0.88"/>
+            <path d="M50,-10 Q78,8 90,35 Q72,24 44,13 Q42,1 50,-10Z" fill="#ff85a1" opacity="0.88"/>
+            <ellipse cx="0" cy="-3" rx="12" ry="9" fill="#ffc2d1"/>
+            <ellipse cx="0" cy="-3" rx="7" ry="5.5" fill="#fff0f3"/>
+            <text x="0" y="0" text-anchor="middle" font-family="EB Garamond,serif" font-style="italic" font-size="9" fill="#6b0020">my tulip girl 🌷</text>
+          </g>
+
+          <!-- Badge -->
+          <circle cx="318" cy="175" r="28" fill="#9b003f" opacity="0.93"/>
+          <circle cx="318" cy="175" r="24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+          <text x="318" y="170" text-anchor="middle" font-family="Cinzel Decorative,serif" font-size="13" font-weight="bold" fill="white">17</text>
+          <text x="318" y="182" text-anchor="middle" font-family="EB Garamond,serif" font-size="8" fill="rgba(255,255,255,0.85)">tulips</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-col" id="tc3">
+    <div class="text-bar"><div class="text-bar-line"></div><span class="text-bar-tulip">🌷</span></div>
+    <div class="text-heading">Tulips Were Always You</div>
+    <div class="text-body">
+      Every single time I see a tulip — every single time — my mind goes straight to you. 
+      Not to a garden, not to a season, not to a photograph. 
+      Just you, Zoha. Your face, your smile, your beauty. 
+      Tulips remind me of you because they are delicate and bold all at once, 
+      breathtakingly beautiful without even trying. 
+      Just like you walk into a room and it changes. Just like the way you exist 
+      makes everything around you softer and more alive. 
+      These 17 tulips are not just flowers — they are every thought of you 
+      I carry silently, every moment your beauty made me catch my breath, 
+      every prayer I whisper that the world gets to see someone as 
+      magnificent as Zoha. You are my tulip girl. You always will be.
+    </div>
+    <div class="text-accent">✦ &nbsp;"Every tulip I ever see will forever be named after you."</div>
+  </div>
+
+  <div class="text-num">03</div>
+</section>
+
+<!-- ══ DIVIDER FINAL ══ -->
+<div class="divider"><div class="div-line"></div><div class="div-icon">💌</div><div class="div-line"></div></div>
+
+<!-- ═══════════════ PROPOSAL ═══════════════ -->
+<section class="proposal" id="proposal">
+  <div class="proposal-icon">🌷💌🌷</div>
+
+  <div class="proposal-q">
+    Will You Stay With Me Forever???<br/>
+    In This World &amp; In Akhirah?
+  </div>
+
+  <div class="btn-group">
+    <button class="btn-yes" onclick="celebrate()"><span>Yess? 🌷</span></button>
+    <button class="btn-yes" onclick="celebrate()"><span>Yess??? 💌</span></button>
+  </div>
+
+  <div class="closing">
+    "Duniya mein bhi, aakhirat mein bhi —<br/>
+    mujhe sirf tera saath chahiye, Zoha. 🌸"
+  </div>
+</section>
+
+<!-- Heart burst -->
+<div id="burst">🌷💌🌸💕🌷</div>
+
+<script>
+  /* ── Petal Rain ── */
+  const petalsEl = document.getElementById('petals');
+  const emojis = ['🌷','🌸','💕','✨','🩷','❤️'];
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    p.style.cssText = `
+      left: ${Math.random() * 100}vw;
+      font-size: ${Math.random() * 1.2 + 0.8}rem;
+      animation-duration: ${Math.random() * 10 + 8}s;
+      animation-delay: ${Math.random() * -18}s;
+    `;
+    petalsEl.appendChild(p);
+  }
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  ['bf1','bf2','bf3','tc1','tc2','tc3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  /* ── Celebrate ── */
+  function celebrate() {
+    const burst = document.getElementById('burst');
+    burst.classList.remove('show');
+    void burst.offsetWidth;
+    burst.classList.add('show');
+
+    for (let i = 0; i < 30; i++) {
+      const r = document.createElement('div');
+      const picks = ['🌷','🌸','💕','✨','🩷','❤️','💌','🌺'];
+      r.style.cssText = `
+        position:fixed; z-index:9998; pointer-events:none;
+        font-size:${Math.random()*1.8+0.9}rem;
+        left:${Math.random()*100}vw;
+        top:-50px;
+        animation: rainPetal ${Math.random()*2.5+2}s ease-in forwards;
+        animation-delay:${Math.random()*0.9}s;
+      `;
+      r.textContent = picks[Math.floor(Math.random()*picks.length)];
+      document.body.appendChild(r);
+      setTimeout(() => r.remove(), 4500);
+    }
+  }
+
+  const st = document.createElement('style');
+  st.textContent = `@keyframes rainPetal { to { transform: translateY(110vh) rotate(400deg); opacity:0; } }`;
+  document.head.appendChild(st);
+</script>
+</body>
+</html>
