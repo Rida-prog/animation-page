@@ -1,0 +1,171 @@
+
+    /* ── Reset ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ── Page background ── */
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #b245be;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* ── Card wrapper ── */
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 40px rgba(107, 92, 231, 0.15);
+    }
+
+    /* ── Gradient header ── */
+    .card-header {
+      background: linear-gradient(135deg, #6B5CE7 0%, #a855f7 50%, #ec4899 100%);
+      padding: 2rem 2rem 1.8rem;
+      text-align: center;
+    }
+
+    .card-header .brand {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .card-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Card body ── */
+    .card-body {
+      padding: 2rem;
+    }
+
+    /* ── Input fields ── */
+    .input-wrap {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      padding: 13px 20px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 50px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #ffffff;
+      color: #333;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-wrap input:focus {
+      border-color: #6B5CE7;
+    }
+
+    .input-wrap input::placeholder {
+      color: #aaa;
+    }
+
+    /* ── Floating label (Password) ── */
+    .float-label {
+      position: absolute;
+      top: -9px;
+      left: 18px;
+      font-size: 12px;
+      color: #6B5CE7;
+      background: #ffffff;
+      padding: 0 6px;
+      font-family: inherit;
+    }
+
+    /* ── Remember me + Forgot password row ── */
+    .options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    .remember input[type="checkbox"] {
+      accent-color: #6B5CE7;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      font-size: 13px;
+      color: #6B5CE7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Login button ── */
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #6B5CE7 0%, #a855f7 50%, #ec4899 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s, transform 0.18s;
+    }
+
+    .login-btn:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+    }
+
+    .login-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* ── Signup row ── */
+    .signup-row {
+      text-align: center;
+      margin-top: 1.4rem;
+      font-size: 13px;
+      color: #777;
+    }
+
+    .signup-row a {
+      color: #6B5CE7;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .signup-row a:hover {
+      text-decoration: underline;
+    }
+  
